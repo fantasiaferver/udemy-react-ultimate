@@ -16,6 +16,7 @@ class DisplayInfor extends React.Component {
                 <div>
                     <span onClick={() => { this.handleHideShow() }}>{this.state.isShowListUser === false ? 'Show list user' : "Hide list user"}</span>
                 </div>
+                <br />
                 {this.state.isShowListUser && <div>
                     {listUsers.map((user) => {
                         return (

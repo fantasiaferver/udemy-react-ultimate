@@ -10,6 +10,13 @@
   color: yellow;
 }
 
+span {
+  padding: 10px;
+  background-color: beige;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
 body {
   padding: 20px;
   margin: 0;
