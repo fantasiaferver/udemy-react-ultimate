@@ -45,7 +45,6 @@ class AddUserInfor extends React.Component {
                     <button
                     >Submit</button>
                 </form>
-                <img src={logo} />
             </div>
         )
     }
