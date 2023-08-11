@@ -1,14 +1,34 @@
 import React from 'react'
 class DisplayInfor extends React.Component {
-    state = {
-        isShowListUser: true
+    constructor(props) {
+        console.log('call constructor: 1')
+        super(props)
+        this.state = {
+            isShowListUser: true
+        }
     }
+
+    componentDidMount() {
+        console.log('Call me did mount')
+        setTimeout(() => {
+            document.title = 'Welcome'
+        }, 3000);
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        console.log('Call me did update', this.props, prevState)
+        if (this.props.listUsers.length === 5) {
+            alert('You got 5 users')
+        }
+    }
+
     handleHideShow = () => {
         this.setState({
             isShowListUser: !this.state.isShowListUser
         })
     }
     render() {
+        console.log('call me render')
         const { listUsers, handleDeleteUser } = this.props
         return (
             //props
