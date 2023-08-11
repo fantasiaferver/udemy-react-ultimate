@@ -1,4 +1,6 @@
 import React from "react";
+import logo from './../logo.svg'
+import './../style/AddUserInfor.scss'
 class AddUserInfor extends React.Component {
     state = {
         firstName: '',
@@ -25,8 +27,9 @@ class AddUserInfor extends React.Component {
     }
     render() {
         return (
-            <div>My name is {this.state.firstName} and my age is {this.state.age}
-                <form onSubmit={(event) => this.handleOnSubmitForm(event)}>
+            <div className="contain-add-user">My name is {this.state.firstName} and my age is {this.state.age}
+                <form
+                    onSubmit={(event) => this.handleOnSubmitForm(event)}>
                     <label>Your name</label>
                     <input type="text"
                         value={this.state.firstName}
@@ -39,8 +42,10 @@ class AddUserInfor extends React.Component {
                         placeholder="Ex: 18"
                         onChange={(event) => this.handleOnChangeInputAge(event)}>
                     </input>
-                    <button>Submit</button>
+                    <button
+                    >Submit</button>
                 </form>
+                <img src={logo} />
             </div>
         )
     }

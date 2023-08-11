@@ -2,6 +2,7 @@ import React from "react";
 import AddUserInfor from "./AddUserInfor";
 import DisplayInfor from "./DisplayInfor";
 
+
 class MyComponent extends React.Component {
 
     state = {
@@ -21,13 +22,12 @@ class MyComponent extends React.Component {
     render() {
 
         return (
-            <div>
+            <>
                 <AddUserInfor handleAddNewUser={this.handleAddNewUser} />
                 <br />
                 <DisplayInfor listUsers={this.state.listUsers}
                 />
-
-            </div>
+            </>
         )
     }
 }
