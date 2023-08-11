@@ -9,7 +9,7 @@ class DisplayInfor extends React.Component {
         })
     }
     render() {
-        const { listUsers } = this.props
+        const { listUsers, handleDeleteUser } = this.props
         return (
             //props
             <div>
@@ -24,6 +24,7 @@ class DisplayInfor extends React.Component {
                                 <div>Id: {user.id}</div>
                                 <div>Name: {user.firstName}</div>
                                 <div>Age: {user.age}</div>
+                                <button onClick={() => handleDeleteUser(user.id)}>Delete</button>
                                 <hr />
                             </div>
                         )
