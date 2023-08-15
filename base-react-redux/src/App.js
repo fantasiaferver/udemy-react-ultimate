@@ -2,8 +2,8 @@ import logo from './logo.svg';
 import './App.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { increaseCounter, decreaseCounter } from './redux/action/counterAction';
-import MyComponent from './components/MyComponent';
 import React from 'react';
+import Header from './components/header/Header';
 
 // class App extends React.Component {
 //   render() {
@@ -38,8 +38,7 @@ const App = () => {
 
   return (
     <div className="app-container">
-      Hello
-      <button className='btn btn-primary'>Button</button>
+      <Header></Header>
     </div>
   );
 }
