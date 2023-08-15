@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { increaseCounter, decreaseCounter } from './redux/action/counterAction';
 import React from 'react';
 import Header from './components/header/Header';
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 // class App extends React.Component {
 //   render() {
 //     return (
@@ -38,14 +38,16 @@ const App = () => {
 
   return (
     <div className="app-container">
-      <Header />
-      <div>
-        Link tinh
+      <div className='header-container'>
+        <Header />
       </div>
-      <button><Link to={`/users`}>User page</Link></button>
-      <button><Link to={`/admins`}>Admin page</Link></button>
-      <div>
 
+      <div className='main-container'>
+        <div className='sidenav-container'></div>
+      </div>
+
+      <div className='app-container'>
+        <Outlet />
       </div>
     </div>
   );

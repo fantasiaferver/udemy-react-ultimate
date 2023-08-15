@@ -12,16 +12,18 @@ import {
 } from "react-router-dom";
 import User from './components/user/User';
 import Admin from './components/admin/Admin';
+import Home from './components/home/Home';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Provider store={store}>
     <BrowserRouter>
       <Routes>
-        <Route path="" element={<App />} />
-        {/* <Route path="/home" element = {<Home/>}/> */}
-        <Route path="users" element={<User />} />
-        <Route path="admins" element={<Admin />} />
+        <Route path="" element={<App />}>
+          <Route path="home" element={<Home />} />
+          <Route path="users" element={<User />} />
+          <Route path="admins" element={<Admin />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   </Provider>
