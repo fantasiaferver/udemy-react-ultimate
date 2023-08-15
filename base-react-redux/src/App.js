@@ -5,6 +5,7 @@ import { increaseCounter, decreaseCounter } from './redux/action/counterAction';
 import React from 'react';
 import Header from './components/header/Header';
 import { Link, Outlet } from "react-router-dom";
+import Home from './components/home/Home';
 // class App extends React.Component {
 //   render() {
 //     return (

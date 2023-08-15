@@ -8,9 +8,9 @@ import { NavLink } from "react-router-dom";
 const Header = () => {
     return (
         <>
-            <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary">
+            <Navbar collapseOnSelect expand="lg" className=".bg-transparent">
                 <Container>
-                    <Navbar.Brand href="#home">Todo Todo</Navbar.Brand>
+                    <Navbar.Brand href="/home">Todo Todo</Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">
