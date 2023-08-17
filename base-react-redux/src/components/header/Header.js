@@ -22,6 +22,10 @@ const Header = () => {
                             <Nav.Link href="/admins">Admin</Nav.Link> */}
                         </Nav>
                         <Nav>
+                            <button type="button" class="btn .bg-transparent border border-dark fw-bold .mr-1" style={{ marginRight: 10 }}>Login</button>
+                            <button type="button" class="btn btn-dark fw-bold">Sign up</button>
+                        </Nav>
+                        {/* <Nav>
                             <NavDropdown title="Settings" id="collasible-nav-dropdown">
                                 <NavDropdown.Item href="#action/3.1">Profile</NavDropdown.Item>
                                 <NavDropdown.Item href="#action/3.2">
@@ -33,7 +37,7 @@ const Header = () => {
                                     More
                                 </NavDropdown.Item>
                             </NavDropdown>
-                        </Nav>
+                        </Nav> */}
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
