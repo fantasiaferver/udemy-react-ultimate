@@ -13,17 +13,22 @@ import {
 import User from './components/user/User';
 import Admin from './components/admin/Admin';
 import Home from './components/home/Home';
+import Dashboard from './components/admin/content/Dashboard';
+import ManageUser from './components/admin/content/ManageUser';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Provider store={store}>
     <BrowserRouter>
       <Routes>
-        <Route path="" element={<App />}>
-          <Route path="home" element={<Home />} />
+        <Route path="/" element={<App />}>
+          <Route path="home" index element={<Home />} />
           <Route path="users" element={<User />} />
         </Route>
-        <Route path="admins" element={<Admin />} />
+        <Route path="admins" element={<Admin />}>
+          <Route index element={<Dashboard />} />
+          <Route path="manager-users" element={<ManageUser />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   </Provider>

@@ -13,7 +13,7 @@ import { FaTachometerAlt, FaGem, FaList, FaGithub, FaRegLaughWink, FaHeart } fro
 import { RiCalendarTodoFill } from "react-icons/ri";
 import { AiFillEdit } from "react-icons/ai";
 import sidebarBg from '../../assets/bg2.jpg';
-
+import { Link } from 'react-router-dom';
 
 const SideBar = (props) => {
     const { image, collapsed, toggled, handleToggleSidebar } = props;
@@ -50,6 +50,7 @@ const SideBar = (props) => {
                             icon={<FaTachometerAlt />}
                         >
                             Dashboard
+                            <Link to="/admins" />
                         </MenuItem>
                     </Menu>
                     <Menu iconShape="circle">
@@ -57,7 +58,9 @@ const SideBar = (props) => {
                             icon={<AiFillEdit />}
                             title='Features'
                         >
-                            <MenuItem> User Manager</MenuItem>
+                            <MenuItem> User Manager
+                                <Link to="/admins/manager-users" />
+                            </MenuItem>
                             <MenuItem> Admin Manager</MenuItem>
                             <MenuItem> Question Manager</MenuItem>
                         </SubMenu>
