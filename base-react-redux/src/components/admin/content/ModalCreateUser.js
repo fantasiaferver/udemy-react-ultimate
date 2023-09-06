@@ -2,20 +2,10 @@ import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { AiFillPlusCircle } from "react-icons/ai";
-import axios from 'axios'
-const ModalCreateUser = (props) => {
-    const { show, setShow } = props
-    // const { setShow } = props
-    // const [show, setShow] = useState(false);
+const ModalCreateUser = () => {
+    const [show, setShow] = useState(false);
 
-    const handleClose = () => {
-        setShow(false);
-        setEmail("");
-        setPassword("");
-        setUserName("");
-        setRole("USER");
-        setPreviewImage("");
-    };
+    const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
     const [email, setEmail] = useState('');
@@ -32,32 +22,11 @@ const ModalCreateUser = (props) => {
         }
     }
 
-    const handleSubmitCreateUser = async () => {
-        // let data = {
-        //     email: email,
-        //     password: password,
-        //     username: userName,
-        //     role: role,
-        //     userImage: image
-        // }
-        // console.log(data)
-
-        const data = new FormData();
-        data.append('email', email);
-        data.append('password', password);
-        data.append('username', userName);
-        data.append('role', role);
-        data.append('userImage', image);
-
-        let res = await axios.post('http://localhost:8081/api/v1/participant', data)
-        console.log('check res', res)
-    }
-
     return (
         <>
-            {/* <Button variant="primary" onClick={handleShow}>
+            <Button variant="primary" onClick={handleShow}>
                 Launch static backdrop modal
-            </Button> */}
+            </Button>
 
             <Modal
                 size='xl'
@@ -112,6 +81,7 @@ const ModalCreateUser = (props) => {
                                 id='lableUpload'
                                 onChange={(event) => handleUpdateImage(event)}
                                 hidden
+                            // value={image}
                             />
                         </div>
                         <div className='col-md-12 img-preview'>
@@ -126,7 +96,7 @@ const ModalCreateUser = (props) => {
                     <Button variant="secondary" onClick={handleClose}>
                         Close
                     </Button>
-                    <Button variant="primary" onClick={() => handleSubmitCreateUser()}>Save</Button>
+                    <Button variant="primary">Save</Button>
                 </Modal.Footer>
             </Modal>
         </>
