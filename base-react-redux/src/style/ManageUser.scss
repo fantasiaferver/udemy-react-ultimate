@@ -28,3 +28,23 @@
         background-color: rgb(240, 240, 240);
     }
 }
+
+.manage-user-container {
+    .title {
+        font-size: 26px;
+        font-weight: 600;
+    }
+
+    .user-content {
+        .btn-add-new {
+            margin: 8px 0;
+
+            button {
+                display: flex;
+                align-items: center;
+                padding: 8px;
+                gap: 3px;
+            }
+        }
+    }
+}
