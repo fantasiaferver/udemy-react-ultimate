@@ -2,8 +2,8 @@ import { isValidElement, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { AiFillPlusCircle } from "react-icons/ai";
-import axios from 'axios'
 import { toast } from 'react-toastify';
+import { postCreateNewUser } from '../../../services/apiService';
 
 const ModalCreateUser = (props) => {
     const { show, setShow } = props
@@ -43,7 +43,6 @@ const ModalCreateUser = (props) => {
     const handleSubmitCreateUser = async () => {
 
         const isValidEmail = validateEmail(email)
-
         if (!isValidEmail) {
             toast.error("Invalid Email")
             return;
@@ -54,23 +53,16 @@ const ModalCreateUser = (props) => {
             return;
         }
 
-        const data = new FormData();
-        data.append('email', email);
-        data.append('password', password);
-        data.append('username', userName);
-        data.append('role', role);
-        data.append('userImage', image);
+        let data = await postCreateNewUser(email, password, userName, role, image)
 
-        let res = await axios.post('http://localhost:8081/api/v1/participant', data)
-        console.log('check res', res.data)
-
-        if (res.data && res.data.EC === 0) {
-            toast.success(res.data.EM);
+        console.log('check data', data)
+        if (data && data.EC === 0) {
+            toast.success(data.EM);
             handleClose();
         }
 
-        if (res.data && res.data.EC !== 0) {
-            toast.warning(res.data.EM);
+        if (data && data.EC !== 0) {
+            toast.warning(data.EM);
         }
     }
 
