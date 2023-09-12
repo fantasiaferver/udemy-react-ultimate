@@ -1,38 +1,40 @@
 import { useEffect, useState } from "react"
-import { getAllUsers } from "../../../services/apiService";
+// import { getAllUsers } from "../../../services/apiService";
 import { AiTwotoneEdit, AiFillDelete, AiOutlineFileText } from "react-icons/ai";
 
 
 const TableUser = (props) => {
 
-    const [listUsers, setListUser] = useState([])
+    // const [listUsers, setListUser] = useState([])
 
-    useEffect(() => {
-        fetchListUser();
-    }, []);
+    const { listUsers } = props
 
-    const fetchListUser = async () => {
-        let res = await getAllUsers()
-        if (res.EC === 0) {
-            setListUser(res.DT)
-        }
-    }
+    // useEffect(() => {
+    //     fetchListUser();
+    // }, []);
+
+    // const fetchListUser = async () => {
+    //     let res = await getAllUsers()
+    //     if (res.EC === 0) {
+    //         setListUser(res.DT)
+    //     }
+    // }
 
     return (
         <>
             <table className="table table-hover table-bordered">
                 <thead>
                     <tr>
-                        <th>No.</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Role</th>
+                        <th scope="col">Id.</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Role</th>
                     </tr>
                 </thead>
                 <tbody>
                     {listUsers && listUsers.length > 0 && listUsers.map((item, index) => {
                         return (<tr key={`table-user-${index}`}>
-                            <th>{index + 1}</th>
+                            <td>{item.id}</td>
                             <td>{item.username === '' ? "Unknow name" : item.username}</td>
                             <td>{item.email}</td>
                             <td>{item.role}</td>
