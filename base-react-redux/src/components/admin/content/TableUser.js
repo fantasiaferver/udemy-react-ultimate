@@ -41,7 +41,10 @@ const TableUser = (props) => {
                             <td>
                                 <div class="btn-group" role="group" aria-label="Basic outlined example">
                                     <button type="button" title="Show" class="btn btn-outline-dark"><AiOutlineFileText /></button>
-                                    <button type="button" title="Edit" class="btn btn-outline-dark"><AiTwotoneEdit /></button>
+                                    <button
+                                        type="button" title="Edit"
+                                        class="btn btn-outline-dark"
+                                        onClick={() => props.handleClickBtnUpdate(item)}><AiTwotoneEdit /></button>
                                     <button type="button" title="Delete" class="btn btn-outline-dark"><AiFillDelete /></button>
                                 </div>
                             </td>
