@@ -35,7 +35,13 @@ const TableUser = (props) => {
                                         type="button" title="Edit"
                                         className="btn btn-outline-dark"
                                         onClick={() => props.handleClickBtnUpdate(item)}><AiTwotoneEdit /></button>
-                                    <button type="button" title="Delete" className="btn btn-outline-dark"><AiFillDelete /></button>
+                                    <button
+                                        type="button"
+                                        title="Delete"
+                                        onClick={() => props.handleClickBtnDelete(item)}
+                                        className="btn btn-outline-dark">
+                                        <AiFillDelete />
+                                    </button>
                                 </div>
                             </td>
                         </tr>

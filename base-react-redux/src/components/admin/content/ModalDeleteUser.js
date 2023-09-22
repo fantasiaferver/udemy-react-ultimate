@@ -1,27 +1,34 @@
+import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
-const ModalDeleteUser = () => {
+const ModalDeleteUser = (props) => {
+
+    const { show, setShow } = props;
+
+    const handleClose = () => setShow(false);
+    const handleSubmitDeleteUser = () => {
+        alert('me')
+    }
+
+
     return (
-        <div
-            className="modal show"
-            style={{ display: 'block', position: 'initial' }}
-        >
-            <Modal.Dialog>
+        <>
+            <Modal show={show} onHide={handleClose} backdrop="static">
                 <Modal.Header closeButton>
-                    <Modal.Title>Modal title</Modal.Title>
+                    <Modal.Title>Delete user</Modal.Title>
                 </Modal.Header>
-
-                <Modal.Body>
-                    <p>Modal body text goes here.</p>
-                </Modal.Body>
-
+                <Modal.Body>Are you sure to delete account with email: <b>{props.dataDelete && props.dataDelete.email ? props.dataDelete.email : ""}</b> ?</Modal.Body>
                 <Modal.Footer>
-                    <Button variant="secondary">Close</Button>
-                    <Button variant="primary">Save changes</Button>
+                    <Button variant="secondary" onClick={handleClose}>
+                        Cancel
+                    </Button>
+                    <Button variant="primary" onClick={() => { handleSubmitDeleteUser() }}>
+                        Confirm
+                    </Button>
                 </Modal.Footer>
-            </Modal.Dialog>
-        </div>
+            </Modal>
+        </>
     );
 }
 

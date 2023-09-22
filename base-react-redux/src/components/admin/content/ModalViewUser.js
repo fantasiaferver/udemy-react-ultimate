@@ -27,7 +27,7 @@ const ModalViewUser = (props) => {
     const [previewImage, setPreviewImage] = useState('');
 
     useEffect(() => {
-        console.log('run use effect')
+        // console.log('run use effect')
         if (!_.isEmpty(dataView)) {
             setEmail(dataView.email);
             setUserName(dataView.username);
@@ -40,7 +40,7 @@ const ModalViewUser = (props) => {
         }
     }, [dataView])
 
-    console.log('check data update:', dataView)
+    // console.log('check data update:', dataView)
     return (
         <>
             <Modal
