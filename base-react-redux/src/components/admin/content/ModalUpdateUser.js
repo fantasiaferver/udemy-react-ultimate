@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { AiFillPlusCircle } from "react-icons/ai";
 import { toast } from 'react-toastify';
-import { postCreateNewUser } from '../../../services/apiService';
+import { putUpdateUser } from '../../../services/apiService';
 import _ from 'lodash'
 
 const ModalUpdateUser = (props) => {
@@ -16,6 +16,7 @@ const ModalUpdateUser = (props) => {
         setUserName("");
         setRole("USER");
         setPreviewImage("");
+        props.resetUdateData();
         setShow(false);
     };
     const handleShow = () => setShow(true);
@@ -47,30 +48,10 @@ const ModalUpdateUser = (props) => {
         }
     }
 
-    const validateEmail = (email) => {
-        return String(email)
-            .toLowerCase()
-            .match(
-                /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-            );
-    };
-
     const handleSubmitCreateUser = async () => {
 
-        const isValidEmail = validateEmail(email)
-        if (!isValidEmail) {
-            toast.error("Invalid Email")
-            return;
-        }
+        let data = await putUpdateUser(dataUpdate.id, userName, role, image)
 
-        if (!password) {
-            toast.error("Invalid Password")
-            return;
-        }
-
-        let data = await postCreateNewUser(email, password, userName, role, image)
-
-        console.log('check data', data)
         if (data && data.EC === 0) {
             toast.success(data.EM);
             handleClose();
@@ -85,10 +66,6 @@ const ModalUpdateUser = (props) => {
     console.log('check data update:', dataUpdate)
     return (
         <>
-            {/* <Button variant="primary" onClick={handleShow}>
-                Launch static backdrop modal
-            </Button> */}
-
             <Modal
                 size='xl'
                 show={show}
@@ -104,7 +81,6 @@ const ModalUpdateUser = (props) => {
                         <div className="col-md-6">
                             <label className="form-label">Email</label>
                             <input type="email"
-                                disabled
                                 className="form-control"
                                 id="inputEmail4"
                                 value={email}

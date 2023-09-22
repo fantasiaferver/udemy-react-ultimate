@@ -4,22 +4,7 @@ import { AiTwotoneEdit, AiFillDelete, AiOutlineFileText } from "react-icons/ai";
 
 
 const TableUser = (props) => {
-
-    // const [listUsers, setListUser] = useState([])
-
     const { listUsers } = props
-
-    // useEffect(() => {
-    //     fetchListUser();
-    // }, []);
-
-    // const fetchListUser = async () => {
-    //     let res = await getAllUsers()
-    //     if (res.EC === 0) {
-    //         setListUser(res.DT)
-    //     }
-    // }
-
     return (
         <>
             <table className="table table-hover table-bordered">
@@ -39,13 +24,18 @@ const TableUser = (props) => {
                             <td>{item.email}</td>
                             <td>{item.role}</td>
                             <td>
-                                <div class="btn-group" role="group" aria-label="Basic outlined example">
-                                    <button type="button" title="Show" class="btn btn-outline-dark"><AiOutlineFileText /></button>
+                                <div className="btn-group" role="group" aria-label="Basic outlined example">
+                                    <button
+                                        type="button"
+                                        title="Show"
+                                        class="btn btn-outline-dark"
+                                        onClick={() => props.handleClickBtnView(item)}
+                                    ><AiOutlineFileText /></button>
                                     <button
                                         type="button" title="Edit"
-                                        class="btn btn-outline-dark"
+                                        className="btn btn-outline-dark"
                                         onClick={() => props.handleClickBtnUpdate(item)}><AiTwotoneEdit /></button>
-                                    <button type="button" title="Delete" class="btn btn-outline-dark"><AiFillDelete /></button>
+                                    <button type="button" title="Delete" className="btn btn-outline-dark"><AiFillDelete /></button>
                                 </div>
                             </td>
                         </tr>
